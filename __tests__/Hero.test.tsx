@@ -10,12 +10,16 @@ describe("Hero", () => {
   it("renders text properly", () => {
     const { getByText } = renderWithWrapper(<Hero />);
 
-    expect(getByText(/^website developer/i)).toBeInTheDocument();
-    expect(getByText(/designer/i)).toBeInTheDocument();
+    const heading = getByText(/test/i);
+    const description = getByText(/creating/i);
+
+    expect(heading).toBeInTheDocument();
+    expect(description).toBeInTheDocument();
   });
 
   it("renders three js canvas", () => {
     const { getByTestId } = renderWithWrapper(<Hero />);
+
     expect(getByTestId("three-canvas")).toBeInTheDocument();
   });
 });
