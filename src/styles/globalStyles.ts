@@ -36,6 +36,6 @@ export default createGlobalStyle`
     left: 0 !important;
     width: 100vw !important;
     height: 110vh !important;
-    z-index: 1;
+    z-index: -1;
   }
 `;
