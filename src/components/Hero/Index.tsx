@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <Container data-testid="hero">
       <Text>
-        <h2>test</h2>
+        <h2>website</h2>
         <h1>DEVELOPER & DESIGNER</h1>
         <h3>Creating and designing innovative web applications</h3>
       </Text>
