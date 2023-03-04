@@ -31,7 +31,7 @@ export default createGlobalStyle`
   }
 
   .three-canvas {
-    position: absolute !important;
+    position: fixed !important;
     top: 0 !important;
     left: 0 !important;
     width: 100vw !important;

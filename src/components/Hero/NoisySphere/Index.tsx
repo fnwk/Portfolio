@@ -11,7 +11,6 @@ const NoisySphere = () => {
   useFrame(() => {
     if (material.current) {
       material.current.userData.uTime.value += 0.01;
-      console.log(material.current.userData.uTime);
     }
   });
 

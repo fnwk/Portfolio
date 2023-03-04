@@ -7,7 +7,7 @@ describe("Hero", () => {
     renderWithWrapper(<Hero />);
   });
 
-  it("renders text properly", () => {
+  it("Hero -> renders text properly", () => {
     const { getByText } = renderWithWrapper(<Hero />);
 
     const heading = getByText(/test/i);
@@ -17,7 +17,7 @@ describe("Hero", () => {
     expect(description).toBeInTheDocument();
   });
 
-  it("renders three js canvas", () => {
+  it("Hero -> renders three js canvas", () => {
     const { getByTestId } = renderWithWrapper(<Hero />);
 
     expect(getByTestId("three-canvas")).toBeInTheDocument();

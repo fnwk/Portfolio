@@ -5,9 +5,9 @@ import Background from "./Background";
 
 const Hero = () => {
   return (
-    <Container role="hero">
+    <Container data-testid="hero">
       <Text>
-        <h2>website</h2>
+        <h2>test</h2>
         <h1>DEVELOPER & DESIGNER</h1>
         <h3>Creating and designing innovative web applications</h3>
       </Text>
