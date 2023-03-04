@@ -1,5 +1,6 @@
+import { ResizeObserver } from "@juggle/resize-observer";
 import { Canvas } from "@react-three/fiber";
-import { Bloom, EffectComposer, Noise } from "@react-three/postprocessing";
+import { EffectComposer, Noise } from "@react-three/postprocessing";
 
 import GradientBg from "./GradientBg/Index";
 import NoisySphere from "./NoisySphere/Index";
@@ -9,7 +10,9 @@ const Background = () => {
     <Canvas
       dpr={[1, 2]}
       className="three-canvas"
+      data-testid="three-canvas"
       camera={{ fov: 70, position: [0, 16, 0] }}
+      resize={{ polyfill: ResizeObserver }}
     >
       <GradientBg />
       <NoisySphere />
