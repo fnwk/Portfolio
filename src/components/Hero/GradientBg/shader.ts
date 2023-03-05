@@ -1,4 +1,4 @@
-import noise from "../../../common/noise";
+import noise from "@/common/noise";
 
 const vertexShader = `
   ${noise}
