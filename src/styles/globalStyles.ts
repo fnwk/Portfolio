@@ -19,7 +19,6 @@ export default createGlobalStyle`
     overflow-x: hidden;
     overflow-y: visible;
 
-
     ::after{
       content: "";
       position: fixed;
@@ -41,5 +40,6 @@ export default createGlobalStyle`
     height: 110vh !important;
     z-index: 1;
     overflow: visible !important;
+
   }
 `;
