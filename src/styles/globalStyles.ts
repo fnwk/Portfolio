@@ -16,7 +16,9 @@ export default createGlobalStyle`
   body {
     width: 100vw;
     height: 100vh;
-  
+    overflow-x: hidden;
+    overflow-y: visible;
+
     ::after{
       content: "";
       position: fixed;
@@ -37,5 +39,7 @@ export default createGlobalStyle`
     width: 100vw !important;
     height: 110vh !important;
     z-index: 1;
+    overflow: visible !important;
+
   }
 `;

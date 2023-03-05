@@ -1,17 +1,23 @@
 import noise from "@/common/noise";
-import { Environment, Lightformer, Sphere } from "@react-three/drei";
+import { Environment, Lightformer, Sphere, useScroll } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useCallback, useRef } from "react";
 import { Color } from "three";
 import { MeshPhysicalMaterial, ShaderMaterial } from "three";
+import { Mesh } from "three/src/Three";
 
 const NoisySphere = () => {
+  const mesh = useRef<Mesh>(null!);
   const material = useRef<MeshPhysicalMaterial>(null!);
+
+  const scrollData = useScroll();
 
   useFrame(() => {
     if (material.current) {
       material.current.userData.uTime.value += 0.01;
     }
+
+    mesh.current.position.z = -scrollData.offset * 15.5 + 2;
   });
 
   const onBeforeCompile = useCallback((shader: any) => {
@@ -38,8 +44,12 @@ const NoisySphere = () => {
 
   return (
     <>
-      <mesh rotation={[-Math.PI / 2 + 0.2, 0, 0]} position={[0, 13, 2]}>
-        <sphereGeometry args={[1.5, 64, 64]} />
+      <mesh
+        ref={mesh}
+        rotation={[-Math.PI / 2 + 0.2, 0, 0]}
+        position={[0, 13, 2]}
+      >
+        <sphereGeometry args={[1.5, 44, 44]} />
         <meshPhysicalMaterial
           ref={material}
           metalness={1}

@@ -1,18 +1,30 @@
+import { Scroll } from "@react-three/drei";
+import { EffectComposer, Noise } from "@react-three/postprocessing";
 import React from "react";
 import styled from "styled-components";
 
-import Background from "./Background";
+import GradientBg from "./GradientBg/Index";
+import NoisySphere from "./NoisySphere/Index";
 
 const Hero = () => {
   return (
-    <Container data-testid="hero">
-      <Text>
-        <h2>website</h2>
-        <h1>DEVELOPER & DESIGNER</h1>
-        <h3>Creating and designing innovative web applications</h3>
-      </Text>
-      <Background />
-    </Container>
+    <>
+      <Scroll html>
+        <Container>
+          <Text>
+            <h2>website</h2>
+            <h1>DEVELOPER & DESIGNER</h1>
+            <h3>Creating and designing innovative web applications</h3>
+          </Text>
+        </Container>
+      </Scroll>
+
+      <NoisySphere />
+      <GradientBg />
+      <EffectComposer>
+        <Noise opacity={0.05} />
+      </EffectComposer>
+    </>
   );
 };
 
@@ -20,6 +32,7 @@ const Container = styled.div`
   position: relative;
   height: 100vh;
   width: 100vw;
+  z-index: 100;
 `;
 
 const Text = styled.div`
@@ -28,7 +41,7 @@ const Text = styled.div`
   position: absolute;
   text-align: center;
   left: 50%;
-  top: 40%;
+  top: 40vh;
   transform: translate(-50%, -50%);
   z-index: 100;
   color: white;
