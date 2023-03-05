@@ -12,7 +12,7 @@ const Slogan = () => {
 
 const Container = styled.section`
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   display: flex;
   align-items: center;
   font-weight: 200;

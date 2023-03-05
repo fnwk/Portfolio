@@ -1,25 +1,22 @@
-import React from "react";
 import styled from "styled-components";
-
-import Background from "./Background";
 
 const Hero = () => {
   return (
-    <Container data-testid="hero">
+    <Container>
       <Text>
         <h2>website</h2>
         <h1>DEVELOPER & DESIGNER</h1>
         <h3>Creating and designing innovative web applications</h3>
       </Text>
-      <Background />
     </Container>
   );
 };
 
-const Container = styled.div`
+const Container = styled.section`
   position: relative;
   height: 100vh;
   width: 100vw;
+  z-index: 100;
 `;
 
 const Text = styled.div`
@@ -28,7 +25,7 @@ const Text = styled.div`
   position: absolute;
   text-align: center;
   left: 50%;
-  top: 40%;
+  top: 40vh;
   transform: translate(-50%, -50%);
   z-index: 100;
   color: white;

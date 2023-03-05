@@ -23,8 +23,9 @@ const GradientBg = () => {
   });
 
   return (
-    <mesh rotation={[-1.9, 0, 0]}>
-      <planeGeometry args={[67, 67, 130, 130]} />
+    <mesh rotation={[-0.4, 0, 0]} position={[0, 0, 0]}>
+      <planeGeometry args={[67, 67, 80, 80]} />
+
       <shaderMaterial
         vertexShader={vertexShader}
         fragmentShader={fragmentShader}
