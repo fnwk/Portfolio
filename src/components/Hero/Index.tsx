@@ -28,7 +28,6 @@ const Text = styled.div`
   top: 40vh;
   transform: translate(-50%, -50%);
   z-index: 100;
-  color: white;
 
   @media (min-width: 768px) {
     width: max-content;
@@ -41,7 +40,7 @@ const Text = styled.div`
     margin-bottom: 20px;
 
     @media (min-width: 768px) {
-      font-size: 5vw;
+      font-size: 4vw;
     }
 
     ::before {
@@ -63,7 +62,7 @@ const Text = styled.div`
   }
 
   h2 {
-    font-size: 4vw;
+    font-size: 3vw;
     font-weight: 200;
     font-style: italic;
     margin-right: auto;
@@ -77,7 +76,7 @@ const Text = styled.div`
     font-weight: 200;
     font-style: italic;
     z-index: 100;
-    font-size: 4vw;
+    font-size: 3vw;
     letter-spacing: 0.18em;
 
     @media (min-width: 768px) {

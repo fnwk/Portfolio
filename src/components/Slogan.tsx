@@ -13,6 +13,7 @@ const Slogan = () => {
 const Container = styled.section`
   height: 100vh;
   width: 100vw;
+  margin-top: 10vh;
   display: flex;
   align-items: center;
   font-weight: 200;
@@ -23,7 +24,6 @@ const Heading = styled.h1`
   font-weight: 200;
   font-style: italic;
   z-index: 100;
-  color: white;
   width: 50%;
   text-align: center;
   margin-inline: auto;

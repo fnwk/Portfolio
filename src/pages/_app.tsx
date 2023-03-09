@@ -33,6 +33,13 @@ export default function App({ Component, pageProps }: AppProps) {
           as="font"
           crossOrigin=""
         />
+        <link
+          rel="preconnect"
+          href="/fonts/ArsenicaTrial-MediumItalic.ttf"
+          type="font/ttf"
+          as="font"
+          crossOrigin=""
+        />
       </Head>
       <ThemeProvider theme={theme}>
         <Component {...pageProps} />
