@@ -6,6 +6,11 @@ export default createGlobalStyle`
     src: url('/fonts/ArsenicaTrial-Italic.ttf');
   }
 
+  @font-face {
+    font-family: 'Arsenica Medium Italic';
+    src: url('/fonts/ArsenicaTrial-MediumItalic.ttf');
+  }
+
   * {
     margin: 0;
     padding: 0;
@@ -18,6 +23,7 @@ export default createGlobalStyle`
     height: 100vh;
     overflow-x: hidden;
     overflow-y: visible;
+    color: white;
 
     ::after{
       content: "";

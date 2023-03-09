@@ -19,8 +19,7 @@ const CustomCanvas = ({ children }: Props) => {
       data-testid="three-canvas"
       camera={{
         fov: 70,
-        position: [0, 16, 0],
-        rotation: [-Math.PI / 2, 0, 0],
+        position: [0, 0, 16],
       }}
       resize={{ polyfill: ResizeObserver }}
     >

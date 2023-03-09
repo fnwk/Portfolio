@@ -15,10 +15,9 @@ const NoisySphere = () => {
   useFrame(() => {
     if (material.current) {
       material.current.userData.uTime.value += 0.01;
-      console.log(material.current.userData.uTime);
     }
 
-    mesh.current.position.z = -scrollData.offset * 15.5 + 2;
+    mesh.current.position.y = scrollData.offset * 11 - 2;
   });
 
   const onBeforeCompile = useCallback((shader: any) => {
@@ -45,11 +44,7 @@ const NoisySphere = () => {
 
   return (
     <>
-      <mesh
-        ref={mesh}
-        rotation={[-Math.PI / 2 + 0.2, 0, 0]}
-        position={[0, 13, 2]}
-      >
+      <mesh ref={mesh} rotation={[0, 0, 0]} position={[0, 0, 12]}>
         <sphereGeometry args={[1.5, 44, 44]} />
         <meshPhysicalMaterial
           ref={material}
@@ -61,9 +56,9 @@ const NoisySphere = () => {
       </mesh>
       <Environment>
         <Lightformer
-          position={[-5, -3, -1]}
+          position={[-5, 0, -1]}
           scale={[20, 2.5, 1]}
-          intensity={4.5}
+          intensity={2.5}
           color={new Color(0x4694e8)}
         />
       </Environment>
