@@ -45,7 +45,5 @@ export default createGlobalStyle`
     width: 100vw !important;
     height: 110vh !important;
     z-index: 1;
-    overflow: visible !important;
-
   }
 `;

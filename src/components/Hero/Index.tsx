@@ -12,11 +12,10 @@ const Hero = () => {
   );
 };
 
-const Container = styled.section`
+const Container = styled.div`
   position: relative;
   height: 100vh;
   width: 100vw;
-  z-index: 100;
 `;
 
 const Text = styled.div`
@@ -25,9 +24,10 @@ const Text = styled.div`
   position: absolute;
   text-align: center;
   left: 50%;
-  top: 40vh;
+  top: 40%;
   transform: translate(-50%, -50%);
   z-index: 100;
+  color: white;
 
   @media (min-width: 768px) {
     width: max-content;
