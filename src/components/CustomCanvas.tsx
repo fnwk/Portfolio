@@ -1,7 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import { ResizeObserver } from "@juggle/resize-observer";
 import {
-  OrbitControls,
   ScrollControls,
   ScrollControlsProps,
   ScrollControlsState,
