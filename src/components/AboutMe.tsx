@@ -23,18 +23,19 @@ const AboutMe = () => {
 const Container = styled.section`
   display: flex;
   flex-direction: column;
-  margin-inline: 10vw 20vw;
-  padding-left: 3vw;
+  margin-top: 30vh;
+  margin-inline: 10vw;
   padding-block: 5vh;
   font-weight: 200;
-
-  border-left: 1px solid white;
+  color: black;
+  text-align: center;
 `;
 
 const Heading = styled.h1`
   font-size: 8vh;
   font-weight: 200;
   margin-bottom: 40px;
+  margin-inline: auto;
 
   span {
     font-family: "Arsenica Medium Italic", serif;

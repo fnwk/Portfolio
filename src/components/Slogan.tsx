@@ -11,9 +11,9 @@ const Slogan = () => {
 };
 
 const Container = styled.section`
-  height: 100vh;
+  height: 60vh;
   width: 100vw;
-  margin-top: 10vh;
+
   display: flex;
   align-items: center;
   font-weight: 200;
