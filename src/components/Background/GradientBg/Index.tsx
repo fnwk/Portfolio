@@ -7,8 +7,6 @@ import { fragmentShader, vertexShader } from "../shader";
 const GradientBg = () => {
   const material = useRef<ShaderMaterial>(null);
 
-  const stencil = useMask(1, true);
-
   // const colors = [0xd97090, 0xf0c67c, 0xc4d9df, 0xe9453b];
   const colors = [0xa9d2ff, 0x4694e8, 0x091836, 0x000821];
   const uniforms = useMemo(
@@ -30,7 +28,6 @@ const GradientBg = () => {
       <planeGeometry args={[67, 67, 80, 80]} />
 
       <shaderMaterial
-        {...stencil}
         vertexShader={vertexShader}
         fragmentShader={fragmentShader}
         uniforms={uniforms}

@@ -1,20 +1,16 @@
-import styled from "styled-components";
+import styled, { StyledComponent } from "styled-components";
 
 const AboutMe = () => {
   return (
     <Container>
+      <Intro>HELLO</Intro>
       <Heading>
-        Hello, my name is <span>Filip</span>
+        My name is <span>Filip</span>
       </Heading>
       <Description>
-        I'm a frontend developer with a passion for creating unique and visually
-        stunning websites. My focus is on creating websites that are not only
-        functional, but also engaging and memorable. I specialize in adding
-        unusual effects and 3D elements to my designs, to create a truly
-        immersive user experience. My goal is to create websites that stand out
-        from the crowd and leave a lasting impression on visitors. Whether
-        you're looking for a simple brochure site or a more complex e-commerce
-        platform, I can help bring your vision to life.
+        I'm a frontend developer who specializes in creating visually stunning,
+        immersive websites that leave a lasting impression. Whether you need a
+        simple site or a complex e-commerce platform, I can bring your vision.
       </Description>
     </Container>
   );
@@ -26,14 +22,18 @@ const Container = styled.section`
   margin-top: 30vh;
   margin-inline: 10vw;
   padding-block: 5vh;
-  font-weight: 200;
-  color: black;
+  font-weight: 400;
+  color: #1a3747;
   text-align: center;
+`;
+
+const Intro = styled.p`
+  border-bottom: 1px;
 `;
 
 const Heading = styled.h1`
   font-size: 8vh;
-  font-weight: 200;
+  font-weight: 400;
   margin-bottom: 40px;
   margin-inline: auto;
 
@@ -44,6 +44,8 @@ const Heading = styled.h1`
 
 const Description = styled.p`
   font-size: 3.5vh;
+  width: 60%;
+  margin: auto;
 `;
 
 export default AboutMe;

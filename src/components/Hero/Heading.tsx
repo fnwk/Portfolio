@@ -15,6 +15,7 @@ const Banner = ({ text, delay }: Props) => {
       opacity: 1,
       transition: {
         delay: 20,
+
         staggerChildren: 0.1,
       },
     },

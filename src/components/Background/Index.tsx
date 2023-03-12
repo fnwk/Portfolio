@@ -1,6 +1,6 @@
 import { EffectComposer, Noise } from "@react-three/postprocessing";
-import BackgroundMask from "./BackgroundMask";
 
+import SolidBg from "./SolidBg";
 import GradientBg from "./GradientBg/Index";
 import NoisySphere from "./NoisySphere/Index";
 
@@ -9,8 +9,8 @@ const Background = () => {
     <>
       <NoisySphere />
       <GradientBg />
-      <BackgroundMask />
-      <EffectComposer stencilBuffer>
+      <SolidBg />
+      <EffectComposer>
         <Noise opacity={0.05} />
       </EffectComposer>
     </>
