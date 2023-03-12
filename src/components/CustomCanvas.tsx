@@ -9,6 +9,7 @@ interface Props {
 const CustomCanvas = ({ children }: Props) => {
   return (
     <Canvas
+      flat
       dpr={[1, 2]}
       className="three-canvas"
       data-testid="three-canvas"
