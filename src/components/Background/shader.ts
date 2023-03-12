@@ -16,6 +16,22 @@ const vertexShader = `
   }
 `;
 
+const sphereVertexShader = `
+  ${noise}
+
+  varying vec2 vUv;
+  uniform float uTime;
+
+  void main() {
+    vUv = uv;
+
+    float noise = snoise(vec3(normal.xy * 5., uTime)) * 0.1;
+    vec3 pos = position + (normal * noise);
+
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+  }
+`;
+
 const fragmentShader = `
   ${noise}
 
@@ -41,4 +57,4 @@ const fragmentShader = `
   }
 `;
 
-export { vertexShader, fragmentShader };
+export { vertexShader, sphereVertexShader, fragmentShader };

@@ -1,67 +1,44 @@
 import noise from "@/common/noise";
-import { Environment, Lightformer, Sphere, useScroll } from "@react-three/drei";
+import { Environment, Lightformer, useScroll } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useCallback, useRef } from "react";
+import { useCallback, useRef, useMemo } from "react";
 import { Color } from "three";
 import { MeshPhysicalMaterial, ShaderMaterial } from "three";
 import { Mesh } from "three/src/Three";
+import { fragmentShader, sphereVertexShader } from "../shader";
+
+type CustomShaderMesh = Mesh & { material: ShaderMaterial };
 
 const NoisySphere = () => {
-  const mesh = useRef<Mesh>(null!);
-  const material = useRef<MeshPhysicalMaterial>(null!);
-
   const scrollData = useScroll();
+  const mesh = useRef<CustomShaderMesh>(null!);
+
+  const colors = [0xa9d2ff, 0x4694e8, 0x091836, 0x000821];
+  const uniforms = useMemo(
+    () => ({
+      uTime: { value: 0 },
+      uColors: { value: colors.map((hexColor) => new Color(hexColor)) },
+    }),
+    []
+  );
 
   useFrame(() => {
-    if (material.current) {
-      material.current.userData.uTime.value += 0.01;
-    }
-
-    mesh.current.position.y = scrollData.offset * 11 - 2;
+    mesh.current.material.uniforms.uTime.value += 0.01;
+    mesh.current.position.y = scrollData.range(0, 1 / 6) * 2.7;
+    mesh.current.position.y += scrollData.range(1 / 5, 1 / 3) * 80 - 2;
+    mesh.current.position.z = scrollData.offset * -15 + 15;
   });
-
-  const onBeforeCompile = useCallback((shader: any) => {
-    shader.uniforms.uTime = material.current.userData.uTime;
-
-    const base =
-      `
-      ${noise}    
-      uniform float uTime;
-    ` + shader.vertexShader;
-
-    const vertexShader = `
-      float noise = snoise(vec3(normal.xy * 2., uTime)) * 0.3;
-      vec3 pos = position + (normal * noise);
-
-      gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
-    `;
-
-    shader.vertexShader = base.replace(
-      `#include <worldpos_vertex>`,
-      vertexShader
-    );
-  }, []);
 
   return (
     <>
-      <mesh ref={mesh} rotation={[0, 0, 0]} position={[0, 0, 12]}>
-        <sphereGeometry args={[1.5, 44, 44]} />
-        <meshPhysicalMaterial
-          ref={material}
-          metalness={1}
-          roughness={0.7}
-          onBeforeCompile={onBeforeCompile}
-          userData={{ uTime: { value: 0 } }}
+      <mesh ref={mesh} rotation={[0, 0, 0.5]} position={[0, -1, 15]}>
+        <sphereGeometry args={[1.8, 60, 60]} />
+        <shaderMaterial
+          vertexShader={sphereVertexShader}
+          fragmentShader={fragmentShader}
+          uniforms={uniforms}
         />
       </mesh>
-      <Environment>
-        <Lightformer
-          position={[-5, 0, -1]}
-          scale={[20, 2.5, 1]}
-          intensity={2.5}
-          color={new Color(0x4694e8)}
-        />
-      </Environment>
     </>
   );
 };
