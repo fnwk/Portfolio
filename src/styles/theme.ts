@@ -1,7 +1,10 @@
-export default {
+import { DefaultTheme } from "styled-components";
+
+const theme: DefaultTheme = {
   colors: {
-    dark: "#272727",
-    light: "#DFDFDF",
-    darkBlue: "#1A3747",
+    darkBlue: "#204975",
+    darkerBlue: "#1A3747",
   },
 };
+
+export default theme;

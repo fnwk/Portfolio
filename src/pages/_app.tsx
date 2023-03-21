@@ -1,16 +1,17 @@
+import Head from "next/head";
 import type { AppProps } from "next/app";
 
 import theme from "@/styles/theme";
-import { ThemeProvider } from "styled-components";
 import GlobalStyles from "@/styles/globalStyles";
-import Head from "next/head";
+
+import { ThemeProvider } from "styled-components";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
         <title>Filip Wnęk</title>
-        <meta name="description" content="Filip Wnęk's portfolio" />
+        <meta name="description" content="Filip Wnęk portfolio" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
 
@@ -40,10 +41,9 @@ export default function App({ Component, pageProps }: AppProps) {
           crossOrigin=""
         />
       </Head>
-      <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
-        <GlobalStyles />
-      </ThemeProvider>
+
+      <Component {...pageProps} />
+      <GlobalStyles />
     </>
   );
 }
