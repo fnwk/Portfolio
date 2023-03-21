@@ -7,7 +7,6 @@ describe("Hero", () => {
     renderWithWrapper(<Hero />);
   });
 
-<<<<<<< HEAD
   it("Hero -> renders text properly", () => {
     const { getByText } = renderWithWrapper(<Hero />);
 
@@ -21,17 +20,6 @@ describe("Hero", () => {
   it("Hero -> renders three js canvas", () => {
     const { getByTestId } = renderWithWrapper(<Hero />);
 
-=======
-  it("renders text properly", () => {
-    const { getByText } = renderWithWrapper(<Hero />);
-
-    expect(getByText(/^website developer/i)).toBeInTheDocument();
-    expect(getByText(/designer/i)).toBeInTheDocument();
-  });
-
-  it("renders three js canvas", () => {
-    const { getByTestId } = renderWithWrapper(<Hero />);
->>>>>>> main
     expect(getByTestId("three-canvas")).toBeInTheDocument();
   });
 });
