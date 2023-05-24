@@ -23,10 +23,13 @@ const Container = styled.section`
   color: ${({ theme }) => theme.colors.darkerBlue};};
   padding-inline: 7.7vw;
   margin-top: 30vh;
+  width: 100vw;
 
   .text-container {
     display: flex;
     flex-direction: column;
+    margin-bottom: 30px;
+    text-align: center;
 
     h1 {
       font-size: 25px;
@@ -43,10 +46,13 @@ const Container = styled.section`
     }
   }
 
-  ${({ theme }) => theme.breakpoints.desktop} {
+  ${({ theme }) => theme.breakpoints.laptop} {
     flex-direction: row;
 
     .text-container {
+      text-align: left;
+      margin-bottom: 0;
+
       h1 {
         font-size: 50px;
       }
