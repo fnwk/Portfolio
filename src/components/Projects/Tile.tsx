@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 
 interface Props {
   title: string;
+  link: string;
 }
 
 const variants = {
@@ -19,11 +20,11 @@ const variants = {
   },
 };
 
-const Tile = ({ title }: Props) => {
+const Tile = ({ title, link }: Props) => {
   return (
-    <Link href="" legacyBehavior>
+    <Link href={link} legacyBehavior>
       <TileStyled variants={variants}>
-        <Image src={`/images/mockups/mockup_${title}.svg`} alt="" fill />
+        <Image src={`/images/mockups/mockup_${title}.png`} alt="" fill />
       </TileStyled>
     </Link>
   );
@@ -36,6 +37,10 @@ const TileStyled = styled(motion.a)`
   border-radius: 10px;
   overflow: hidden;
   margin-inline: auto;
+
+  img {
+    object-fit: contain;
+  }
 
   ${({ theme }) => theme.breakpoints.tablet} {
     width: 25vw;

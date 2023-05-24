@@ -18,7 +18,7 @@ const CustomCanvas = ({ children }: Props) => {
         position: [0, 0, 18],
       }}
       resize={{ polyfill: ResizeObserver }}>
-      <ScrollControls eps={0.00000000000001} pages={3.7} damping={0.3}>
+      <ScrollControls pages={4} damping={0.3}>
         {children}
       </ScrollControls>
     </Canvas>

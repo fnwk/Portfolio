@@ -8,7 +8,7 @@ const AboutMe = () => {
   const [visible, setVisible] = useState(false);
 
   useFrame(() => {
-    setVisible(scrollData.visible(1 / 5, 1));
+    setVisible(scrollData.visible(1 / 3, 1));
   });
 
   return (
@@ -40,6 +40,10 @@ const Container = styled.section`
   font-weight: 400;
   color: ${({ theme }) => theme.colors.darkerBlue};
   text-align: center;
+
+  ${({ theme }) => theme.breakpoints.tablet} {
+    margin-top: 10vh;
+  }
 `;
 
 const Intro = styled.p`

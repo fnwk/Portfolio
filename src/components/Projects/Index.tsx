@@ -10,12 +10,15 @@ import { motion } from 'framer-motion';
 const projectsList = [
   {
     title: 'Earth',
+    link: 'https://github.com/fnwk/earth',
   },
   {
     title: 'Walkwards',
+    link: 'https://github.com/fnwk/walkwards.pl',
   },
   {
     title: 'Odzywieni',
+    link: 'https://github.com/fnwk/odzywieniwiedza.pl',
   },
 ];
 
@@ -37,8 +40,8 @@ const Projects = () => {
   const [visible, setVisible] = useState(false);
 
   useFrame(() => {
-    if (visible === false || scrollData.visible(0, 1 / 5)) {
-      setVisible(scrollData.visible(1 / 3.7, 1));
+    if (visible === false || scrollData.visible(0, 1 / 2)) {
+      setVisible(scrollData.visible(1 / 2, 1));
     }
   });
 
@@ -51,8 +54,8 @@ const Projects = () => {
             variants={variants}
             initial="initial"
             animate="animate">
-            {projectsList.map(({ title }, index) => (
-              <Tile title={title} key={index} />
+            {projectsList.map(({ title, link }, index) => (
+              <Tile title={title} link={link} key={index} />
             ))}
           </motion.div>
           <Title>

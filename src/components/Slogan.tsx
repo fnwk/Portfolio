@@ -17,6 +17,10 @@ const Container = styled.section`
   display: flex;
   align-items: center;
   font-weight: 200;
+
+  ${({ theme }) => theme.breakpoints.tablet} {
+    margin-top: 30vh;
+  }
 `;
 
 const Heading = styled.h1`

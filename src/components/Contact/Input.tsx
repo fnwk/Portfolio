@@ -6,21 +6,42 @@ interface Props {
   name: string;
   placeholder: string;
   className?: string;
+  value?: string;
+  inputHandler?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  textareaHandler?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
-const Input = ({ label, type, name, placeholder, className }: Props) => {
-  return (
-    <Container className={className}>
-      <label htmlFor={name}>{label}</label>
-      {type === 'textarea' ? (
-        <textarea id={name} name={name} placeholder={placeholder} />
-      ) : (
-        <input id={name} name={name} placeholder={placeholder} />
-      )}
-    </Container>
-  );
-};
-
+const Input = ({
+  label,
+  type,
+  name,
+  placeholder,
+  className,
+  value,
+  inputHandler,
+  textareaHandler,
+}: Props) => (
+  <Container className={className}>
+    <label htmlFor={name}>{label}</label>
+    {type === 'textarea' ? (
+      <textarea
+        id={name}
+        name={name}
+        placeholder={placeholder}
+        value={value}
+        onChange={textareaHandler}
+      />
+    ) : (
+      <input
+        id={name}
+        name={name}
+        placeholder={placeholder}
+        value={value}
+        onChange={inputHandler}
+      />
+    )}
+  </Container>
+);
 const Container = styled.div`
   display: flex;
   width: 45%;
