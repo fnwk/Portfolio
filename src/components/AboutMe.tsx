@@ -1,7 +1,7 @@
-import { useScroll } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
-import { useState } from "react";
-import styled from "styled-components";
+import { useScroll } from '@react-three/drei';
+import { useFrame } from '@react-three/fiber';
+import { useState } from 'react';
+import styled from 'styled-components';
 
 const AboutMe = () => {
   const scrollData = useScroll();
@@ -35,7 +35,7 @@ const Container = styled.section`
   display: flex;
   flex-direction: column;
   margin-top: 8vh;
-  margin-inline: 12vw;
+  margin-inline: 10vw;
   padding-block: 5vh;
   font-weight: 400;
   color: ${({ theme }) => theme.colors.darkerBlue};
@@ -48,19 +48,19 @@ const Intro = styled.p`
 
 const Title = styled.h1`
   position: relative;
-  font-size: 50px;
+  font-size: 25px;
   font-weight: 400;
   padding-top: 30px;
   margin-bottom: 45px;
   margin-inline: auto;
 
   span {
-    font-family: "Arsenica Medium Italic", serif;
+    font-family: 'Arsenica Medium Italic', serif;
     color: ${({ theme }) => theme.colors.darkBlue};
   }
 
   ::after {
-    content: "";
+    content: '';
     position: absolute;
     top: 8px;
     left: 50%;
@@ -68,21 +68,25 @@ const Title = styled.h1`
     display: block;
     width: 60px;
     height: 4.2px;
-    background-image: url("/images/curve.svg");
+    background-image: url('/images/curve.svg');
     background-repeat: no-repeat;
     background-size: cover;
+  }
+
+  ${({ theme }) => theme.breakpoints.tablet} {
+    font-size: 50px;
   }
 `;
 
 const Description = styled.p`
   position: relative;
-  width: 60%;
+  width: 95%;
   margin: auto;
   padding-bottom: 40px;
-  font-size: 30px;
+  font-size: 13px;
 
   ::after {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -90,9 +94,17 @@ const Description = styled.p`
     display: block;
     width: 60px;
     height: 4.2px;
-    background-image: url("/images/curve.svg");
+    background-image: url('/images/curve.svg');
     background-repeat: no-repeat;
     background-size: cover;
+  }
+
+  ${({ theme }) => theme.breakpoints.tablet} {
+    font-size: 30px;
+  }
+
+  ${({ theme }) => theme.breakpoints.desktop} {
+    width: 70%;
   }
 `;
 

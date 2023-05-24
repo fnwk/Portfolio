@@ -1,6 +1,6 @@
-import { Canvas } from "@react-three/fiber";
-import { ResizeObserver } from "@juggle/resize-observer";
-import { ScrollControls, OrbitControls } from "@react-three/drei";
+import { Canvas } from '@react-three/fiber';
+import { ResizeObserver } from '@juggle/resize-observer';
+import { ScrollControls, OrbitControls } from '@react-three/drei';
 
 interface Props {
   children: React.ReactNode;
@@ -17,10 +17,8 @@ const CustomCanvas = ({ children }: Props) => {
         fov: 70,
         position: [0, 0, 18],
       }}
-      resize={{ polyfill: ResizeObserver }}
-    >
-      {/* <OrbitControls /> */}
-      <ScrollControls pages={6} damping={0.3}>
+      resize={{ polyfill: ResizeObserver }}>
+      <ScrollControls eps={0.00000000000001} pages={3.7} damping={0.3}>
         {children}
       </ScrollControls>
     </Canvas>

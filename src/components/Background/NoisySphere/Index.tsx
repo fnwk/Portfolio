@@ -1,11 +1,10 @@
-import noise from "@/common/noise";
-import { Environment, Lightformer, useScroll } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
-import { useCallback, useRef, useMemo } from "react";
-import { Color } from "three";
-import { MeshPhysicalMaterial, ShaderMaterial } from "three";
-import { Mesh } from "three/src/Three";
-import { fragmentShader, sphereVertexShader } from "../shader";
+import { Environment, useScroll } from '@react-three/drei';
+import { useFrame } from '@react-three/fiber';
+import { useRef, useMemo } from 'react';
+import { Color } from 'three';
+import { ShaderMaterial } from 'three';
+import { Mesh } from 'three/src/Three';
+import { fragmentShader, sphereVertexShader } from '../shader';
 
 type CustomShaderMesh = Mesh & { material: ShaderMaterial };
 
@@ -25,8 +24,8 @@ const NoisySphere = () => {
   useFrame(() => {
     mesh.current.material.uniforms.uTime.value += 0.01;
     mesh.current.position.y = scrollData.range(0, 1 / 6) * 2.7;
-    mesh.current.position.y += scrollData.range(1 / 5, 1 / 3) * 80 - 2;
-    mesh.current.position.z = scrollData.offset * -15 + 15;
+    mesh.current.position.y += scrollData.range(1 / 3, 1 / 2) * 80 - 2;
+    mesh.current.position.z = scrollData.offset * -8 + 15;
   });
 
   return (

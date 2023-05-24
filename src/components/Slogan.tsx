@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Slogan = () => {
   return (
@@ -20,16 +20,21 @@ const Container = styled.section`
 `;
 
 const Heading = styled.h1`
-  font-size: 4vw;
+  font-size: 9vw;
   font-weight: 200;
   font-style: italic;
   z-index: 100;
-  width: 50%;
+  width: 90%;
   text-align: center;
   margin-inline: auto;
 
   span {
-    font-family: "Arsenica Italic", serif;
+    font-family: 'Arsenica Italic', serif;
+  }
+
+  ${({ theme }) => theme.breakpoints.tablet} {
+    width: 50%;
+    font-size: 4vw;
   }
 `;
 
