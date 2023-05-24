@@ -1,24 +1,21 @@
-import { useState } from "react";
-import styled from "styled-components";
+import { useState } from 'react';
+import styled from 'styled-components';
 
-import { useScroll } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
+import { useScroll } from '@react-three/drei';
+import { useFrame } from '@react-three/fiber';
 
-import Tile from "./Tile";
-import { motion } from "framer-motion";
+import Tile from './Tile';
+import { motion } from 'framer-motion';
 
 const projectsList = [
   {
-    title: "Comptee",
+    title: 'Earth',
   },
   {
-    title: "Earth",
+    title: 'Walkwards',
   },
   {
-    title: "Walkwards",
-  },
-  {
-    title: "Odzywieni",
+    title: 'Odzywieni',
   },
 ];
 
@@ -53,14 +50,13 @@ const Projects = () => {
             className="project-list"
             variants={variants}
             initial="initial"
-            animate="animate"
-          >
+            animate="animate">
             {projectsList.map(({ title }, index) => (
-              <Tile title={title} index={index} />
+              <Tile title={title} key={index} />
             ))}
           </motion.div>
           <Title>
-            Selected <span>Works</span>
+            SELECTED <span>WORKS</span>
           </Title>
         </Container>
       )}
@@ -75,37 +71,61 @@ const Container = styled(motion.div)`
 
   .project-list {
     display: flex;
+    flex-direction: column;
     padding-inline: 5vw;
     justify-content: space-around;
     align-items: baseline;
+
+    ${({ theme }) => theme.breakpoints.tablet} {
+      flex-direction: row;
+    }
   }
 `;
 
 const Title = styled.h1`
   position: relative;
   margin: 70px auto;
-  padding-top: 40px;
-  font-size: 45px;
-  font-weight: 400;
+  padding-top: 0;
+  font-size: 25px;
+  font-weight: 700;
   color: ${({ theme }) => theme.colors.darkerBlue};
 
   ::before {
-    content: "";
+    content: '';
     position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 50%;
+    left: 0%;
+    transform: translate(-120%, -40%);
     display: block;
-    width: 120px;
-    height: 8.4px;
-    background-image: url("/images/curve.svg");
+    width: 20vw;
+    height: 40px;
+    background-image: url('/images/curve2.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  ::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    transform: translate(120%, -40%) rotateY(180deg);
+    display: block;
+    width: 20vw;
+    height: 40px;
+    background-image: url('/images/curve2.svg');
     background-repeat: no-repeat;
     background-size: cover;
   }
 
   span {
-    font-family: "Arsenica Medium Italic";
-    color: ${({ theme }) => theme.colors.darkBlue};
+    color: transparent;
+    -webkit-text-stroke: 1px ${({ theme }) => theme.colors.darkerBlue};
+  }
+
+  ${({ theme }) => theme.breakpoints.tablet} {
+    padding-top: 40px;
+    font-size: 45px;
   }
 `;
 

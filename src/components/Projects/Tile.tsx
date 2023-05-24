@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import styled from "styled-components";
-import { motion } from "framer-motion";
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 interface Props {
   title: string;
-  index: number;
 }
 
 const variants = {
@@ -20,41 +19,28 @@ const variants = {
   },
 };
 
-const Tile = ({ title, index }: Props) => {
-  const [RectSize, setRectSize] = useState({ width: 0, height: 0 });
-
-  useEffect(() => {
-    if (index === 0 || index === 3) {
-      setRectSize({ width: 16, height: 19.52 });
-    } else {
-      setRectSize({ width: 19, height: 23.18 });
-    }
-  }, [index]);
-
+const Tile = ({ title }: Props) => {
   return (
     <Link href="" legacyBehavior>
-      <TileStyled
-        variants={variants}
-        width={RectSize.width}
-        height={RectSize.height}
-      >
-        <Image src={`/images/projects/${title}.webp`} alt="" fill />
+      <TileStyled variants={variants}>
+        <Image src={`/images/mockups/mockup_${title}.svg`} alt="" fill />
       </TileStyled>
     </Link>
   );
 };
 
-interface StyledLinkProps {
-  width: number;
-  height: number;
-}
-
-const TileStyled = styled(motion.a)<StyledLinkProps>`
+const TileStyled = styled(motion.a)`
   position: relative;
-  width: ${({ width }) => width}vw;
-  height: ${({ height }) => height}vw;
-  border-radius: 30px;
+  width: 70vw;
+  height: 70vw;
+  border-radius: 10px;
   overflow: hidden;
+  margin-inline: auto;
+
+  ${({ theme }) => theme.breakpoints.tablet} {
+    width: 25vw;
+    height: 20vw;
+  }
 `;
 
 export default Tile;

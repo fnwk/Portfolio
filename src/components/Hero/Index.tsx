@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import { motion } from "framer-motion";
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-import Marquee from "./Marquee";
-import Heading from "./Heading";
+import Marquee from './Marquee';
+import Heading from './Heading';
 
 const Hero = () => {
   const textVariants = {
@@ -63,21 +63,43 @@ const Container = styled.section`
 
     h1 {
       font-weight: 700;
-      font-size: 12vh;
+      font-size: 8vh;
     }
 
     p {
       font-weight: 200;
-      font-size: 3.5vh;
+      font-size: 3vh;
+    }
+
+    ${({ theme }) => theme.breakpoints.tablet} {
+      h1 {
+        font-size: 12vh;
+      }
+
+      p {
+        font-size: 3.5vh;
+      }
     }
   }
 `;
 
 const TopRow = styled.div`
   flex-direction: column;
+
+  h1 {
+    margin-inline: auto;
+  }
+
+  ${({ theme }) => theme.breakpoints.tablet} {
+    h1 {
+      margin-inline: 0;
+    }
+  }
 `;
 
 const BottomRow = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
   border-top: 1px solid rgba(255, 255, 255, 0.13);
 
   h1 {
@@ -87,7 +109,19 @@ const BottomRow = styled.div`
   }
 
   p {
-    width: 50%;
+    margin: auto;
+    text-align: center;
+    width: 95%;
+  }
+
+  ${({ theme }) => theme.breakpoints.tablet} {
+    flex-direction: row;
+
+    p {
+      width: 50%;
+      margin-inline: 0;
+      text-align: left;
+    }
   }
 `;
 

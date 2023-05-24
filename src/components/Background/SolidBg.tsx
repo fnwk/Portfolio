@@ -1,15 +1,15 @@
-import { useRef } from "react";
+import { useRef } from 'react';
 
-import { Mesh } from "three";
-import { useScroll } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
+import { Mesh } from 'three';
+import { useScroll } from '@react-three/drei';
+import { useFrame } from '@react-three/fiber';
 
 const SolidBg = () => {
   const mesh = useRef<Mesh>(null!);
   const data = useScroll();
 
   useFrame(() => {
-    const scale = data.range(1 / 6, 1 / 4) * 20;
+    const scale = data.range(1 / 3.5, 1 / 3) * 20;
 
     mesh.current.scale.x = scale;
     mesh.current.scale.y = scale;
