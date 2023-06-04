@@ -9,15 +9,15 @@ import { motion } from 'framer-motion';
 
 const projectsList = [
   {
-    title: 'Earth',
+    title: 'earth',
     link: 'https://github.com/fnwk/earth',
   },
   {
-    title: 'Walkwards',
+    title: 'walkwards',
     link: 'https://github.com/fnwk/walkwards.pl',
   },
   {
-    title: 'Odzywieni',
+    title: 'odzywieni',
     link: 'https://github.com/fnwk/odzywieniwiedza.pl',
   },
 ];
