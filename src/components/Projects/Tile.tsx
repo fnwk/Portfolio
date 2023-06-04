@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
@@ -24,7 +23,7 @@ const Tile = ({ title, link }: Props) => {
   return (
     <Link href={link} legacyBehavior>
       <TileStyled variants={variants}>
-        <Image src={`/images/mockups/mockup_${title}.png`} alt="" fill />
+        <Image src={`/images/mockups/mockup_${title}.webp`} alt="" fill />
       </TileStyled>
     </Link>
   );
