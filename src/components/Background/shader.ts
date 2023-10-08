@@ -1,21 +1,5 @@
 import noise from "@/common/noise";
 
-const vertexShader = `
-  ${noise}
-
-  varying vec2 vUv;
-  uniform float uTime;
-
-  void main() {
-    vUv = uv;
-
-    float horizontalMove = uTime * 0.02;
-    float noise = snoise(vec3(vUv.x * 6. + horizontalMove, vUv.y * 10., uTime * 0.01)) * 12.;
-
-    gl_Position = projectionMatrix * modelViewMatrix * vec4(position.xy, position.z + noise, 1.0);
-  }
-`;
-
 const sphereVertexShader = `
   ${noise}
 
@@ -29,6 +13,22 @@ const sphereVertexShader = `
     vec3 pos = position + (normal * noise);
 
     gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+  }
+`;
+
+const vertexShader = `
+  ${noise}
+
+  varying vec2 vUv;
+  uniform float uTime;
+
+  void main() {
+    vUv = uv;
+
+    float horizontalMove = uTime * 0.02;
+    float noise = snoise(vec3(vUv.x * 6. + horizontalMove, vUv.y * 3., uTime * 0.01)) * 12.;
+
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(position.xy, position.z + noise, 1.0);
   }
 `;
 

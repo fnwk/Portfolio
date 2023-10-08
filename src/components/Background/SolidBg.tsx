@@ -9,7 +9,7 @@ const SolidBg = () => {
   const data = useScroll();
 
   useFrame(() => {
-    const scale = data.range(1 / 3.5, 1 / 3) * 20;
+    const scale = data.range(1 / 3, 1 / 3) * 30;
 
     mesh.current.scale.x = scale;
     mesh.current.scale.y = scale;

@@ -1,6 +1,6 @@
-import { useScroll } from '@react-three/drei';
-import { useFrame } from '@react-three/fiber';
-import { useState } from 'react';
+import {useScroll} from '@react-three/drei';
+import {useFrame} from '@react-three/fiber';
+import {useState} from 'react';
 import styled from 'styled-components';
 
 const AboutMe = () => {
@@ -8,7 +8,7 @@ const AboutMe = () => {
   const [visible, setVisible] = useState(false);
 
   useFrame(() => {
-    setVisible(scrollData.visible(1 / 3, 1));
+    setVisible(scrollData.visible(1 / 3 + 0.02, 1));
   });
 
   return (
@@ -38,10 +38,10 @@ const Container = styled.section`
   margin-inline: 10vw;
   padding-block: 5vh;
   font-weight: 400;
-  color: ${({ theme }) => theme.colors.darkerBlue};
+  color: ${({theme}) => theme.colors.darkerBlue};
   text-align: center;
 
-  ${({ theme }) => theme.breakpoints.tablet} {
+  ${({theme}) => theme.breakpoints.tablet} {
     margin-top: 10vh;
   }
 `;
@@ -60,7 +60,7 @@ const Title = styled.h1`
 
   span {
     font-family: 'Arsenica Medium Italic', serif;
-    color: ${({ theme }) => theme.colors.darkBlue};
+    color: ${({theme}) => theme.colors.darkBlue};
   }
 
   ::after {
@@ -77,7 +77,7 @@ const Title = styled.h1`
     background-size: cover;
   }
 
-  ${({ theme }) => theme.breakpoints.tablet} {
+  ${({theme}) => theme.breakpoints.tablet} {
     font-size: 50px;
   }
 `;
@@ -103,11 +103,11 @@ const Description = styled.p`
     background-size: cover;
   }
 
-  ${({ theme }) => theme.breakpoints.tablet} {
+  ${({theme}) => theme.breakpoints.tablet} {
     font-size: 30px;
   }
 
-  ${({ theme }) => theme.breakpoints.desktop} {
+  ${({theme}) => theme.breakpoints.desktop} {
     width: 70%;
   }
 `;

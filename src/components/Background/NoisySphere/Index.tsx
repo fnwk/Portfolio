@@ -1,22 +1,23 @@
-import { Environment, useScroll } from '@react-three/drei';
-import { useFrame } from '@react-three/fiber';
-import { useRef, useMemo } from 'react';
-import { Color } from 'three';
-import { ShaderMaterial } from 'three';
-import { Mesh } from 'three/src/Three';
-import { fragmentShader, sphereVertexShader } from '../shader';
+import {Environment, useScroll} from '@react-three/drei';
+import {useFrame} from '@react-three/fiber';
+import {useRef, useMemo} from 'react';
+import {Color} from 'three';
+import {ShaderMaterial} from 'three';
+import {Mesh} from 'three/src/Three';
+import {fragmentShader, sphereVertexShader} from '../shader';
 
-type CustomShaderMesh = Mesh & { material: ShaderMaterial };
+type CustomShaderMesh = Mesh & {material: ShaderMaterial};
 
 const NoisySphere = () => {
   const scrollData = useScroll();
   const mesh = useRef<CustomShaderMesh>(null!);
 
   const colors = [0xa9d2ff, 0x4694e8, 0x091836, 0x000821];
+
   const uniforms = useMemo(
     () => ({
-      uTime: { value: 0 },
-      uColors: { value: colors.map((hexColor) => new Color(hexColor)) },
+      uTime: {value: 0},
+      uColors: {value: colors.map((hexColor) => new Color(hexColor))},
     }),
     []
   );
@@ -24,7 +25,7 @@ const NoisySphere = () => {
   useFrame(() => {
     mesh.current.material.uniforms.uTime.value += 0.01;
     mesh.current.position.y = scrollData.range(0, 1 / 6) * 2.7;
-    mesh.current.position.y += scrollData.range(1 / 3, 1 / 2) * 80 - 2;
+    mesh.current.position.y += scrollData.range(1 / 3 + 0.03, 1 / 2) * 80 - 2;
     mesh.current.position.z = scrollData.offset * -8 + 15;
   });
 

@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import {useState} from 'react';
 import styled from 'styled-components';
 
-import { useScroll } from '@react-three/drei';
-import { useFrame } from '@react-three/fiber';
+import {useScroll} from '@react-three/drei';
+import {useFrame} from '@react-three/fiber';
 
 import Tile from './Tile';
-import { motion } from 'framer-motion';
+import {motion} from 'framer-motion';
 
 const projectsList = [
   {
@@ -40,9 +40,7 @@ const Projects = () => {
   const [visible, setVisible] = useState(false);
 
   useFrame(() => {
-    if (visible === false || scrollData.visible(0, 1 / 2)) {
-      setVisible(scrollData.visible(1 / 2, 1));
-    }
+    setVisible(scrollData.visible(0.5, 1));
   });
 
   return (
@@ -54,7 +52,7 @@ const Projects = () => {
             variants={variants}
             initial="initial"
             animate="animate">
-            {projectsList.map(({ title, link }, index) => (
+            {projectsList.map(({title, link}, index) => (
               <Tile title={title} link={link} key={index} />
             ))}
           </motion.div>
@@ -79,7 +77,7 @@ const Container = styled(motion.div)`
     justify-content: space-around;
     align-items: baseline;
 
-    ${({ theme }) => theme.breakpoints.tablet} {
+    ${({theme}) => theme.breakpoints.tablet} {
       flex-direction: row;
     }
   }
@@ -91,7 +89,7 @@ const Title = styled.h1`
   padding-top: 0;
   font-size: 25px;
   font-weight: 700;
-  color: ${({ theme }) => theme.colors.darkerBlue};
+  color: ${({theme}) => theme.colors.darkerBlue};
 
   ::before {
     content: '';
@@ -123,10 +121,10 @@ const Title = styled.h1`
 
   span {
     color: transparent;
-    -webkit-text-stroke: 1px ${({ theme }) => theme.colors.darkerBlue};
+    -webkit-text-stroke: 1px ${({theme}) => theme.colors.darkerBlue};
   }
 
-  ${({ theme }) => theme.breakpoints.tablet} {
+  ${({theme}) => theme.breakpoints.tablet} {
     padding-top: 40px;
     font-size: 45px;
   }
